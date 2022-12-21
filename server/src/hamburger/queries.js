@@ -30,7 +30,8 @@ const removeSiparis_urunler = "DELETE FROM siparis_urunler WHERE kayit_no = $1";
 const updateSiparis_urunler = "UPDATE siparis_urunler SET fiyat = $1 WHERE kayit_no = $2";
 const addSiparis =
   "INSERT INTO siparis (musteri_id,odeme_id,teslimat_id,personel_id,sube_id,toplam_tutar,kayit_no) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING * ";
-module.exports = {
+  
+module.exports = { 
   getHamburger,
   getHamburgerById,
   checkHamburgerTuruExists,
