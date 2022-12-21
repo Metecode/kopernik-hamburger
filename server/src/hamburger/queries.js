@@ -5,7 +5,8 @@ const checkHamburgerTuruExists =
 const addHamburger =
   "INSERT INTO hamburger (sos_id,et_id,ekmek_id,hamburger_miktar,hamburger_secenek_id) VALUES ($1, $2, $3, $4, $5) RETURNING * ";
 const removeHamburger = "DELETE FROM hamburger WHERE hamburger_id = $1";
-const updateHamburger = "UPDATE hamburger SET hamburger_miktar = $1 WHERE hamburger_id = $2";
+const updateHamburger =
+  "UPDATE hamburger SET hamburger_miktar = $1 WHERE hamburger_id = $2";
 const getEkmek = "SELECT * FROM ekmek";
 const getEkmekById = "SELECT * FROM ekmek WHERE ekmek_id = $1";
 const getEt = "SELECT * FROM et";
@@ -27,7 +28,8 @@ const addSiparis_urunler =
 const addSiparis_totalurunler =
   "SELECT * FROM siparis_urunler INNER JOIN icecek ON siparis_urunler.icecek_id = icecek.icecek_id INNER JOIN tatli ON siparis_urunler.tatli_id = tatli.tatli_id INNER JOIN hamburger ON hamburger.hamburger_id = siparis_urunler.hamburger_id ORDER BY kayit_no DESC LIMIT 1";
 const removeSiparis_urunler = "DELETE FROM siparis_urunler WHERE kayit_no = $1";
-const updateSiparis_urunler = "UPDATE siparis_urunler SET fiyat = $1 WHERE kayit_no = $2";
+const updateSiparis_urunler =
+  "UPDATE siparis_urunler SET fiyat = $1 WHERE kayit_no = $2";
 const addSiparis =
   "INSERT INTO siparis (musteri_id,odeme_id,teslimat_id,personel_id,sube_id,toplam_tutar,kayit_no) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING * ";
 module.exports = {
