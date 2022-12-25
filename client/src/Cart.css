@@ -50,6 +50,7 @@
     background-color: skyblue;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 5px;
   }
   .cart_box div:nth-child(3) button:hover {
     background-color: darkseagreen;
@@ -90,6 +91,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     margin-right: 10px;
+    margin-left: 20px;
     margin-top: 5px;
   }
 

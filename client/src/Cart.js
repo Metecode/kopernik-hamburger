@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./Cart.css"
+import swal from 'sweetalert';
 
 const Cart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
@@ -28,10 +29,15 @@ const Cart = ({ cart, setCart, handleChange }) => {
     // 👇️ get number between min (inclusive) and max (inclusive)
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+  
   const handleOkay = async(miktar, fiyat, kayit_no,icecek,tatli)=>{
+    swal({
+      title: "Afiyet olsun siparisin hazirlaniyor!",
+      text: "Siparis Onaylandi",
+      icon: "success",
+      button: "Devam et",
+    });
     setNum(randomNumberInRange(1, 2));
-    console.log(num)
-    console.log(fiyat);
     await axios
     .post("http://localhost:3000/api/v1/siparis/", {
       musteri_id:num,
@@ -43,6 +49,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
       kayit_no: kayit_no,
     })
   }
+  
  console.log(cart);
   return (
     <article>
@@ -61,7 +68,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
           </div>
           <div>
             <span>{`${item.fiyat * item.hamburger_miktar}`}₺</span>
-            <button onClick={() => handleRemove(item.kayit_no)}>Remove</button>
+            <button onClick={() => handleRemove(item.kayit_no)}>Sepeti Sil</button>
           <button className="okay" onClick={()=> handleOkay(item.hamburger_miktar,item.fiyat,item.kayit_no,item.icecek_fiyat,item.tatli_fiyat)}  >Siparisi Onayla</button>
           </div>
         </div>
